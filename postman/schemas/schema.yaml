@@ -1,0 +1,120 @@
+openapi: 3.0.0
+
+info:
+    title: Cat Adoption API
+    description: This is a simple test API
+    version: 0.1.0
+
+servers:
+    - url: 'https://exampleCats.com'
+
+paths:        
+    /cats:
+        get:
+            summary: Get Cats
+            description: This allows you to list cats.
+            operationId: getCats
+
+            responses:
+                '200':
+                    description: Cats listed.
+                    content: 
+                        'application/json': 
+                            schema:
+                                $ref: '#/components/schemas/Cats'
+
+        post:
+            summary: Add Cat
+            description: This allows you to add a single cat.
+            operationId: addCat
+
+            requestBody:
+                description: This is the cat object.
+                content:
+                    'application/json':
+                        schema:
+                            $ref: '#/components/schemas/Cat'
+                        examples:
+                            cat:
+                                summary: Add cat example.
+                                value:
+                                    id: 1
+                                    name: Tom
+                                    description: Grey cat with white tummy
+                        
+            responses:
+                '201':
+                    description: Cat created.
+
+    /cats/{id}:
+        put:
+            summary: Update Cat
+            description: This allows you to update single cat.
+            operationId: updateCat
+
+            parameters:
+              - name: id
+                in: path
+                description: cat ID
+                required: true
+                schema:
+                    type: integer
+                    format: int32
+                    example: 123
+        
+            requestBody:
+                description: This is the cat object.
+                content:
+                    'application/json':
+                        schema:
+                            $ref: '#/components/schemas/Cat'
+            responses:
+                '204':
+                    description: Ok updated
+
+
+
+components:
+    schemas:
+        CatShort:
+            type: object
+            required:
+                - id
+                - name
+            properties:
+                id:
+                    type: integer
+                name:
+                    type: string
+        Cats:
+            type: object
+            required:
+                - cats
+            properties:
+                cats:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/CatShort'
+        Cat:
+            type: object
+            required:
+                - id
+                - name
+                - description
+            properties:
+                id:
+                    type: integer
+                name:
+                    type: string
+                description:
+                    type: string
+                owner:
+                    type: string
+                breed:
+                    type: string
+                age:
+                    type: integer
+                weight:
+                    type: integer
+                fluffy:
+                    type: boolean

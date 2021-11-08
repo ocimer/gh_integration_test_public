@@ -1,0 +1,215 @@
+{
+    "info": {
+        "_postman_id": "bed824f4-5fc2-47af-83fa-c2d357e70b1c",
+        "name": "Test Cats API",
+        "description": "This is a simple test API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "cats",
+            "item": [
+                {
+                    "name": "Get Cats",
+                    "id": "3666ce96-2b3d-4aec-9f31-cfcccad2365a",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/cats",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "cats"
+                            ]
+                        },
+                        "description": "This allows you to list cats."
+                    },
+                    "response": [
+                        {
+                            "id": "bb85eadc-bf3a-459e-b100-c4191f56cfe8",
+                            "name": "Cats listed.",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/cats",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "cats"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n \"cats\": [\n  {\n   \"id\": 81414215,\n   \"name\": \"culpa in\"\n  },\n  {\n   \"id\": 77002640,\n   \"name\": \"adipisicing quis occaecat consequ\"\n  }\n ]\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Add Cat",
+                    "id": "dc749e6e-3fce-490f-bf9e-cba22361adeb",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": 1,\n    \"name\": \"Tom\",\n    \"description\": \"Grey cat with white tummy.\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/cats",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "cats"
+                            ]
+                        },
+                        "description": "This allows you to add a single cat."
+                    },
+                    "response": [
+                        {
+                            "id": "132c5646-df36-4314-bab8-4d3bfabbc186",
+                            "name": "Cat created.",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"id\": 1,\n    \"name\": \"Tom\",\n    \"description\": \"Grey cat with white tummy\"\n}"
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/cats",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "cats"
+                                    ]
+                                }
+                            },
+                            "status": "Created",
+                            "code": 201,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "text/plain"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Cat",
+                    "id": "5d188027-542e-4516-b8f8-1ed533329a58",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": 46051171,\n    \"name\": \"laboris nostrud voluptate proident\",\n    \"description\": \"sunt\",\n    \"owner\": \"irure magna qui ea\",\n    \"breed\": \"ad amet Duis in\",\n    \"age\": -56162991,\n    \"weight\": -85573578,\n    \"fluffy\": false\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/cats/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "cats",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "id": "71d87a88-b282-4087-bf0f-d9efc3f477f1",
+                                    "key": "id",
+                                    "value": "123",
+                                    "description": "(Required) cat ID"
+                                }
+                            ]
+                        },
+                        "description": "This allows you to update single cat."
+                    },
+                    "response": [
+                        {
+                            "id": "d6505730-6e99-4d49-b808-e33cf5883dc9",
+                            "name": "Ok updated",
+                            "originalRequest": {
+                                "method": "PUT",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"id\": 46051171,\n    \"name\": \"laboris nostrud voluptate proident\",\n    \"description\": \"sunt\",\n    \"owner\": \"irure magna qui ea\",\n    \"breed\": \"ad amet Duis in\",\n    \"age\": -56162991,\n    \"weight\": -85573578,\n    \"fluffy\": false\n}"
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/cats/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "cats",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "No Content",
+                            "code": 204,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "text/plain"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": ""
+                        }
+                    ]
+                }
+            ],
+            "id": "e26127fa-398a-45a5-a51c-ad79b0325f41"
+        }
+    ],
+    "variable": [
+        {
+            "id": "5c734d15-f935-4267-96c0-68ee0f901ee1",
+            "key": "baseUrl",
+            "value": "https://exampleCats.com",
+            "type": "string"
+        }
+    ]
+}
